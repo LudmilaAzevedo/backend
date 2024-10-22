@@ -157,4 +157,44 @@ export class PedidoVenda {
         }
     }
     
+    static async cadastroPedidoVenda(cliente:PedidoVenda): Promise<boolean> {
+        try {
+            // query para fazer insert de um pedido no banco de dados
+            const queryInsertCliente = `INSERT INTO cliente (nome, cpf, telefone)
+                                        VALUES ('${PedidoVenda.getNome()}', '${PedidoVenda.getCpf()}', '${PedidoVenda.getTelefone()}')
+                                        RETURNING id_cliente;`;
+
+            // executa a query no banco e armazena a resposta
+            const respostaBD = await database.query(queryInsertCliente);
+
+            // verifica se a quantidade de linhas modificadas é diferente de 0
+            if (respostaBD.rowCount != 0) {
+                console.log('PedidoVenda cadastrado com sucesso! ID do cliente: ${respostaBD.rows[0].id_cliente}');
+                // true significa que o cadastro foi feito
+                return true;
+            }
+            // false significa que o cadastro NÃO foi feito.
+            return false;
+
+            // tratando o erro
+        } catch (error) {
+            // imprime outra mensagem junto com o erro
+            console.log('Erro ao cadastrar o PedidoVenda. Verifique os logs para mais detalhes.');
+            // imprime o erro no console
+            console.log('error');
+            // retorno um valor falso
+            return false;
+        }
+    }
+    static getTelefone() {
+        throw new Error("Method not implemented.");
+    }
+    static getCpf() {
+        throw new Error("Method not implemented.");
+    }
+    static getNome() {
+        throw new Error("Method not implemented.");
+    }
+    
 }
+
