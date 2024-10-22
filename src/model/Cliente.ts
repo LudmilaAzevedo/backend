@@ -123,7 +123,7 @@ export class Cliente {
 
         try {
             const querySelectCliente = `SELECT * FROM cliente`;
-            const respostaBD = await database.query(`querySelectCliente`);
+            const respostaBD = await database.query(querySelectCliente);
 
             respostaBD.rows.forEach((linha) => {
                 const novoCliente = new Cliente(
@@ -139,7 +139,7 @@ export class Cliente {
             
             return listaDeClientes;
         } catch (error) {
-            console.log('Erro ao buscar lista de carros');
+            console.log('Erro ao buscar lista de clientes');
             return null;
         }
     }

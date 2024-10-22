@@ -21,7 +21,7 @@ router.post("/novo/carro", CarroController.novo);
 /* 
 * ROTAS PARA CLIENTES
 */ 
-// Rota para listar os clientes
+// Rotas CRUD Cliente
 router.get("/lista/clientes", ClienteController.todos);
 router.post("/novo/cliente", ClienteController.novo);
 

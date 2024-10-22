@@ -30,7 +30,7 @@ export class ClienteController extends Cliente {
             return res.status(200).json(listaDeClientes);
         } catch (error) {
             console.log('Erro ao acessar listagem de carros');
-            return res.status(400).json({ mensagem: "Não foi possível acessar a listagem de carros" });
+            return res.status(400).json({ mensagem: "Não foi possível acessar a listagem de clientes" });
         }
     }
 
