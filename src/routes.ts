@@ -30,6 +30,7 @@ router.post("/novo/cliente", ClienteController.novo);
 */ 
 // Rota para listar os pedidos
 router.get("/lista/pedidos", PedidoVendaController.todos);
+router.post("/novo/pedido", PedidoVendaController.novo);
 
 // exportando as rotas
 export { router };
