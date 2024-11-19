@@ -17,6 +17,8 @@ router.get("/", (req: Request, res: Response) => {
 // Rota para listar os carros
 router.get("/lista/carros", CarroController.todos);
 router.post("/novo/carro", CarroController.novo);
+//Rota para remover um carro
+router.delete("/delete/carro/:idCarro", CarroController.remover);
 
 /* 
 * ROTAS PARA CLIENTES
@@ -24,6 +26,7 @@ router.post("/novo/carro", CarroController.novo);
 // Rotas CRUD Cliente
 router.get("/lista/clientes", ClienteController.todos);
 router.post("/novo/cliente", ClienteController.novo);
+router.delete("/delete/cliente/:idCliente", ClienteController.remover);
 
 /* 
 * ROTAS PARA PEDIDOS
@@ -31,6 +34,7 @@ router.post("/novo/cliente", ClienteController.novo);
 // Rota para listar os pedidos
 router.get("/lista/pedidos", PedidoVendaController.todos);
 router.post("/novo/pedido", PedidoVendaController.novo);
+router.delete("/delete/PedidoVenda/:idPedidoVenda", PedidoVendaController.remover);
 
 // exportando as rotas
 export { router };
